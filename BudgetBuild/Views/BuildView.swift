@@ -17,6 +17,7 @@ import Charts
 private func calculatePercentage(value: Category?, total: [Category]) -> Double {
     let calcTotal = (total.map{($0.Subcategories.map{$0.amount}.reduce(0,+))}.reduce(0,+) as Double)
     let catTotal = (value!.Subcategories.map{$0.amount}.reduce(0,+) as Double)
+    if (calcTotal == 0) {return 0}
     return (catTotal / calcTotal)
 }
 
